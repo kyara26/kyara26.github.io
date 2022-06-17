@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"></script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/1.2/css/weather-icons.min.css"></script> 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel = "stylesheet" href = "index.css">
+  <link rel = "stylesheet" href = "https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link href="https://fonts.googleapis.com/css2?family=Gaegu:wght@700&display=swap" rel="stylesheet">
+  <title> Synéchise.com </title>
+ 
+  <style>
+ body {
+  margin: 0;
+   margin-left:0;
+}
+
+#slider {
+  position: relative;
+  width: 500px;
+  height: 265px;
+ 
+  overflow: hidden;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+}
+#slider ul {
+  position: relative;
+  list-style: none;
+  height: 100%;
+  width: 10000%;
+  padding: 0;
+  margin: 0;
+  transition: all 750ms ease;
+  left: 0;
+}
+#slider ul li {
+  position: relative;
+  height: 100%;
+ 
+  float: left;
+}
+#slider ul li img{
+  width: 500px;
+  height: 265px;
+}
+ 
+#slider #prev, #slider #next {
+  width: 50px;
+  line-height: 50px;
+  border-radius: 50%;
+  font-size: 2rem;
+  text-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+  text-align: center;
+    border-radius: 10px;
+  color: white;
+  text-decoration: none;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: all 150ms ease;
+}
+#slider #prev:hover, #slider #next:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+  text-shadow: 0;
+}
+#slider #prev {
+  left: 10px;
+}
+#slider #next {
+  right: 10px;
+}
+#txt1{
+   font-size: 26px;
+   line-height: 0;
+}
+p{
+   position: absolute;
+  top: 8px;
+    right: 16px;
+    
+}
+
+    
+
+  </style>
+</head>
+<body>
+  <a href="info.html">
+    <i class="material-icons" o>face</i><span id="txt1"> Profile</span>
+    </a>
+  
+  
+    <p>
+    <i class="material-icons" >question_mark</i>
+    <i class="material-icons" >photo_camera</i>
+    <i class="material-icons" >settings</i>
+    
+    <a href="login.html">
+      <i class="fa fa-sign-out" style="font-size:24px"></i>
+    </a>
+    </p>
+    <hr>
+    <hr>
+    <h1 align="center">My Album</h1>
+    <br>
+    
+   
+    
+<center>
+  <div id="slider">
+      
+    <ul id="slideWrap"> 
+      <li><img src="images/0x0.jpg" alt=""></li>
+      <li><img src="images/1024px-white_sand_beach_boracay_island_-_panoramio_1.jpg" alt=""></li>
+      <li><img src="images/1200x-1.jpg" alt=""></li>
+      <li><img src="images/17f8178a2727bf068477b0f675720851.jpg" alt=""></li>
+      <li><img src="images/1_15470_02.jpg" alt=""></li>
+      <li><img src="images/20160822082404_1827676852_10042_0.jpg" alt=""></li>
+    </ul>
+    <a id="prev" href="#">&#8810;</a>
+    <a id="next" href="#">&#8811;</a>
+  </div>
+    </center>
+  
+  <script>
+    var responsiveSlider = function() {
+
+var slider = document.getElementById("slider");
+var sliderWidth = slider.offsetWidth;
+var slideList = document.getElementById("slideWrap");
+var count = 1;
+var items = slideList.querySelectorAll("li").length;
+var prev = document.getElementById("prev");
+var next = document.getElementById("next");
+
+window.addEventListener('resize', function() {
+  sliderWidth = slider.offsetWidth;
+});
+
+var prevSlide = function() {
+  if(count > 1) {
+    count = count - 2;
+    slideList.style.left = "-" + count * sliderWidth + "px";
+    count++;
+  }
+  else if(count = 1) {
+    count = items - 1;
+    slideList.style.left = "-" + count * sliderWidth + "px";
+    count++;
+  }
+};
+
+var nextSlide = function() {
+  if(count < items) {
+    slideList.style.left = "-" + count * sliderWidth + "px";
+    count++;
+  }
+  else if(count = items) {
+    slideList.style.left = "0px";
+    count = 1;
+  }
+};
+
+next.addEventListener("click", function() {
+  nextSlide();
+});
+
+prev.addEventListener("click", function() {
+  prevSlide();
+});
+
+setInterval(function() {
+  nextSlide()
+}, 5000);
+
+};
+
+window.onload = function() {
+responsiveSlider();  
+}
+
+  </script>
+    <br>
+    <br>
+    <h1 align="center">Time Zone</h1>
+   
+  <center>
+
+    <br>
+      <select>
+	<option data-time-zone-id="1" data-gmt-adjustment="GMT-12:00" data-use-daylight="0" value="-12">(GMT-12:00) International Date Line West</option>
+	<option data-time-zone-id="2" data-gmt-adjustment="GMT-11:00" data-use-daylight="0" value="-11">(GMT-11:00) Midway Island, Samoa</option>
+	<option data-time-zone-id="3" data-gmt-adjustment="GMT-10:00" data-use-daylight="0" value="-10">(GMT-10:00) Hawaii</option>
+	<option data-time-zone-id="4" data-gmt-adjustment="GMT-09:00" data-use-daylight="1" value="-9">(GMT-09:00) Alaska</option>
+	<option data-time-zone-id="5" data-gmt-adjustment="GMT-08:00" data-use-daylight="1" value="-8">(GMT-08:00) Pacific Time (US & Canada)</option>
+	<option data-time-zone-id="6" data-gmt-adjustment="GMT-08:00" data-use-daylight="1" value="-8">(GMT-08:00) Tijuana, Baja California</option>
+	<option data-time-zone-id="7" data-gmt-adjustment="GMT-07:00" data-use-daylight="0" value="-7">(GMT-07:00) Arizona</option>
+	<option data-time-zone-id="8" data-gmt-adjustment="GMT-07:00" data-use-daylight="1" value="-7">(GMT-07:00) Chihuahua, La Paz, Mazatlan</option>
+	<option data-time-zone-id="9" data-gmt-adjustment="GMT-07:00" data-use-daylight="1" value="-7">(GMT-07:00) Mountain Time (US & Canada)</option>
+	<option data-time-zone-id="10" data-gmt-adjustment="GMT-06:00" data-use-daylight="0" value="-6">(GMT-06:00) Central America</option>
+	<option data-time-zone-id="11" data-gmt-adjustment="GMT-06:00" data-use-daylight="1" value="-6">(GMT-06:00) Central Time (US & Canada)</option>
+	<option data-time-zone-id="12" data-gmt-adjustment="GMT-06:00" data-use-daylight="1" value="-6">(GMT-06:00) Guadalajara, Mexico City, Monterrey</option>
+	<option data-time-zone-id="13" data-gmt-adjustment="GMT-06:00" data-use-daylight="0" value="-6">(GMT-06:00) Saskatchewan</option>
+	<option data-time-zone-id="14" data-gmt-adjustment="GMT-05:00" data-use-daylight="0" value="-5">(GMT-05:00) Bogota, Lima, Quito, Rio Branco</option>
+	<option data-time-zone-id="15" data-gmt-adjustment="GMT-05:00" data-use-daylight="1" value="-5">(GMT-05:00) Eastern Time (US & Canada)</option>
+	<option data-time-zone-id="16" data-gmt-adjustment="GMT-05:00" data-use-daylight="1" value="-5">(GMT-05:00) Indiana (East)</option>
+	<option data-time-zone-id="17" data-gmt-adjustment="GMT-04:00" data-use-daylight="1" value="-4">(GMT-04:00) Atlantic Time (Canada)</option>
+	<option data-time-zone-id="18" data-gmt-adjustment="GMT-04:00" data-use-daylight="0" value="-4">(GMT-04:00) Caracas, La Paz</option>
+	<option data-time-zone-id="19" data-gmt-adjustment="GMT-04:00" data-use-daylight="0" value="-4">(GMT-04:00) Manaus</option>
+	<option data-time-zone-id="20" data-gmt-adjustment="GMT-04:00" data-use-daylight="1" value="-4">(GMT-04:00) Santiago</option>
+	<option data-time-zone-id="21" data-gmt-adjustment="GMT-03:30" data-use-daylight="1" value="-3.5">(GMT-03:30) Newfoundland</option>
+	<option data-time-zone-id="22" data-gmt-adjustment="GMT-03:00" data-use-daylight="1" value="-3">(GMT-03:00) Brasilia</option>
+	<option data-time-zone-id="23" data-gmt-adjustment="GMT-03:00" data-use-daylight="0" value="-3">(GMT-03:00) Buenos Aires, Georgetown</option>
+	<option data-time-zone-id="24" data-gmt-adjustment="GMT-03:00" data-use-daylight="1" value="-3">(GMT-03:00) Greenland</option>
+	<option data-time-zone-id="25" data-gmt-adjustment="GMT-03:00" data-use-daylight="1" value="-3">(GMT-03:00) Montevideo</option>
+	<option data-time-zone-id="26" data-gmt-adjustment="GMT-02:00" data-use-daylight="1" value="-2">(GMT-02:00) Mid-Atlantic</option>
+	<option data-time-zone-id="27" data-gmt-adjustment="GMT-01:00" data-use-daylight="0" value="-1">(GMT-01:00) Cape Verde Is.</option>
+	<option data-time-zone-id="28" data-gmt-adjustment="GMT-01:00" data-use-daylight="1" value="-1">(GMT-01:00) Azores</option>
+	<option data-time-zone-id="29" data-gmt-adjustment="GMT+00:00" data-use-daylight="0" value="0">(GMT+00:00) Casablanca, Monrovia, Reykjavik</option>
+	<option data-time-zone-id="30" data-gmt-adjustment="GMT+00:00" data-use-daylight="1" value="0">(GMT+00:00) Greenwich Mean Time : Dublin, Edinburgh, Lisbon, London</option>
+	<option data-time-zone-id="31" data-gmt-adjustment="GMT+01:00" data-use-daylight="1" value="1">(GMT+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna</option>
+	<option data-time-zone-id="32" data-gmt-adjustment="GMT+01:00" data-use-daylight="1" value="1">(GMT+01:00) Belgrade, Bratislava, Budapest, Ljubljana, Prague</option>
+	<option data-time-zone-id="33" data-gmt-adjustment="GMT+01:00" data-use-daylight="1" value="1">(GMT+01:00) Brussels, Copenhagen, Madrid, Paris</option>
+	<option data-time-zone-id="34" data-gmt-adjustment="GMT+01:00" data-use-daylight="1" value="1">(GMT+01:00) Sarajevo, Skopje, Warsaw, Zagreb</option>
+	<option data-time-zone-id="35" data-gmt-adjustment="GMT+01:00" data-use-daylight="1" value="1">(GMT+01:00) West Central Africa</option>
+	<option data-time-zone-id="36" data-gmt-adjustment="GMT+02:00" data-use-daylight="1" value="2">(GMT+02:00) Amman</option>
+	<option data-time-zone-id="37" data-gmt-adjustment="GMT+02:00" data-use-daylight="1" value="2">(GMT+02:00) Athens, Bucharest, Istanbul</option>
+	<option data-time-zone-id="38" data-gmt-adjustment="GMT+02:00" data-use-daylight="1" value="2">(GMT+02:00) Beirut</option>
+	<option data-time-zone-id="39" data-gmt-adjustment="GMT+02:00" data-use-daylight="1" value="2">(GMT+02:00) Cairo</option>
+	<option data-time-zone-id="40" data-gmt-adjustment="GMT+02:00" data-use-daylight="0" value="2">(GMT+02:00) Harare, Pretoria</option>
+	<option data-time-zone-id="41" data-gmt-adjustment="GMT+02:00" data-use-daylight="1" value="2">(GMT+02:00) Helsinki, Kyiv, Riga, Sofia, Tallinn, Vilnius</option>
+	<option data-time-zone-id="42" data-gmt-adjustment="GMT+02:00" data-use-daylight="1" value="2">(GMT+02:00) Jerusalem</option>
+	<option data-time-zone-id="43" data-gmt-adjustment="GMT+02:00" data-use-daylight="1" value="2">(GMT+02:00) Minsk</option>
+	<option data-time-zone-id="44" data-gmt-adjustment="GMT+02:00" data-use-daylight="1" value="2">(GMT+02:00) Windhoek</option>
+	<option data-time-zone-id="45" data-gmt-adjustment="GMT+03:00" data-use-daylight="0" value="3">(GMT+03:00) Kuwait, Riyadh, Baghdad</option>
+	<option data-time-zone-id="46" data-gmt-adjustment="GMT+03:00" data-use-daylight="1" value="3">(GMT+03:00) Moscow, St. Petersburg, Volgograd</option>
+	<option data-time-zone-id="47" data-gmt-adjustment="GMT+03:00" data-use-daylight="0" value="3">(GMT+03:00) Nairobi</option>
+	<option data-time-zone-id="48" data-gmt-adjustment="GMT+03:00" data-use-daylight="0" value="3">(GMT+03:00) Tbilisi</option>
+	<option data-time-zone-id="49" data-gmt-adjustment="GMT+03:30" data-use-daylight="1" value="3.5">(GMT+03:30) Tehran</option>
+	<option data-time-zone-id="50" data-gmt-adjustment="GMT+04:00" data-use-daylight="0" value="4">(GMT+04:00) Abu Dhabi, Muscat</option>
+	<option data-time-zone-id="51" data-gmt-adjustment="GMT+04:00" data-use-daylight="1" value="4">(GMT+04:00) Baku</option>
+	<option data-time-zone-id="52" data-gmt-adjustment="GMT+04:00" data-use-daylight="1" value="4">(GMT+04:00) Yerevan</option>
+	<option data-time-zone-id="53" data-gmt-adjustment="GMT+04:30" data-use-daylight="0" value="4.5">(GMT+04:30) Kabul</option>
+	<option data-time-zone-id="54" data-gmt-adjustment="GMT+05:00" data-use-daylight="1" value="5">(GMT+05:00) Yekaterinburg</option>
+	<option data-time-zone-id="55" data-gmt-adjustment="GMT+05:00" data-use-daylight="0" value="5">(GMT+05:00) Islamabad, Karachi, Tashkent</option>
+	<option data-time-zone-id="56" data-gmt-adjustment="GMT+05:30" data-use-daylight="0" value="5.5">(GMT+05:30) Sri Jayawardenapura</option>
+	<option data-time-zone-id="57" data-gmt-adjustment="GMT+05:30" data-use-daylight="0" value="5.5">(GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi</option>
+	<option data-time-zone-id="58" data-gmt-adjustment="GMT+05:45" data-use-daylight="0" value="5.75">(GMT+05:45) Kathmandu</option>
+	<option data-time-zone-id="59" data-gmt-adjustment="GMT+06:00" data-use-daylight="1" value="6">(GMT+06:00) Almaty, Novosibirsk</option>
+	<option data-time-zone-id="60" data-gmt-adjustment="GMT+06:00" data-use-daylight="0" value="6">(GMT+06:00) Astana, Dhaka</option>
+	<option data-time-zone-id="61" data-gmt-adjustment="GMT+06:30" data-use-daylight="0" value="6.5">(GMT+06:30) Yangon (Rangoon)</option>
+	<option data-time-zone-id="62" data-gmt-adjustment="GMT+07:00" data-use-daylight="0" value="7">(GMT+07:00) Bangkok, Hanoi, Jakarta</option>
+	<option data-time-zone-id="63" data-gmt-adjustment="GMT+07:00" data-use-daylight="1" value="7">(GMT+07:00) Krasnoyarsk</option>
+	<option data-time-zone-id="64" data-gmt-adjustment="GMT+08:00" data-use-daylight="0" value="8">(GMT+08:00) Beijing, Chongqing, Hong Kong, Urumqi</option>
+	<option data-time-zone-id="65" data-gmt-adjustment="GMT+08:00" data-use-daylight="0" value="8">(GMT+08:00) Kuala Lumpur, Singapore</option>
+	<option data-time-zone-id="66" data-gmt-adjustment="GMT+08:00" data-use-daylight="0" value="8">(GMT+08:00) Irkutsk, Ulaan Bataar</option>
+	<option data-time-zone-id="67" data-gmt-adjustment="GMT+08:00" data-use-daylight="0" value="8">(GMT+08:00) Perth</option>
+	<option data-time-zone-id="68" data-gmt-adjustment="GMT+08:00" data-use-daylight="0" value="8">(GMT+08:00) Taipei</option>
+	<option data-time-zone-id="69" data-gmt-adjustment="GMT+09:00" data-use-daylight="0" value="9">(GMT+09:00) Osaka, Sapporo, Tokyo</option>
+	<option data-time-zone-id="70" data-gmt-adjustment="GMT+09:00" data-use-daylight="0" value="9">(GMT+09:00) Seoul</option>
+	<option data-time-zone-id="71" data-gmt-adjustment="GMT+09:00" data-use-daylight="1" value="9">(GMT+09:00) Yakutsk</option>
+	<option data-time-zone-id="72" data-gmt-adjustment="GMT+09:30" data-use-daylight="0" value="9.5">(GMT+09:30) Adelaide</option>
+	<option data-time-zone-id="73" data-gmt-adjustment="GMT+09:30" data-use-daylight="0" value="9.5">(GMT+09:30) Darwin</option>
+	<option data-time-zone-id="74" data-gmt-adjustment="GMT+10:00" data-use-daylight="0" value="10">(GMT+10:00) Brisbane</option>
+	<option data-time-zone-id="75" data-gmt-adjustment="GMT+10:00" data-use-daylight="1" value="10">(GMT+10:00) Canberra, Melbourne, Sydney</option>
+	<option data-time-zone-id="76" data-gmt-adjustment="GMT+10:00" data-use-daylight="1" value="10">(GMT+10:00) Hobart</option>
+	<option data-time-zone-id="77" data-gmt-adjustment="GMT+10:00" data-use-daylight="0" value="10">(GMT+10:00) Guam, Port Moresby</option>
+	<option data-time-zone-id="78" data-gmt-adjustment="GMT+10:00" data-use-daylight="1" value="10">(GMT+10:00) Vladivostok</option>
+	<option data-time-zone-id="79" data-gmt-adjustment="GMT+11:00" data-use-daylight="1" value="11">(GMT+11:00) Magadan, Solomon Is., New Caledonia</option>
+	<option data-time-zone-id="80" data-gmt-adjustment="GMT+12:00" data-use-daylight="1" value="12">(GMT+12:00) Auckland, Wellington</option>
+	<option data-time-zone-id="81" data-gmt-adjustment="GMT+12:00" data-use-daylight="0" value="12">(GMT+12:00) Fiji, Kamchatka, Marshall Is.</option>
+	<option data-time-zone-id="82" data-gmt-adjustment="GMT+13:00" data-use-daylight="0" value="13">(GMT+13:00) Nuku'alofa</option>
+</select>
+      
+       </center> 
+    <br>
+  
+<div class="tab">
+  <button class="tablinks" onclick="openCity(event, 'London')">Travel Guide</button>
+  <button class="tablinks" onclick="openCity(event, 'Paris')">Travel Planner</button>
+  <button class="tablinks" onclick="openCity(event, 'Tokyo')">Travel Expenses</button>
+</div>
+
+<!---------- for travel guide -------->
+<div id="London" class="tabcontent">
+    <center>
+        <br>
+  <h3> Hi! Always rememeber to chase your <br>dreams by taking steps forward and <br>embracing every place youve been to.</h3>
+        <br>
+   <form id="form" role="search">
+  <input type="search" id="query" name="q"
+   placeholder="Search..."
+   aria-label="Search through site content">
+  <button>Search</button>
+</form>
+      
+<div id="DigitalCLOCK" class="clock" onload="showTime()"></div>
+        <br>
+         
+        
+<div id="ww_88918d989d2a5" v='1.20' loc='id' a='{"t":"horizontal","lang":"en","ids":["wl4565"],"cl_bkg":"image","cl_font":"#FFFFFF","cl_cloud":"#FFFFFF","cl_persp":"#81D4FA","cl_sun":"#FFC107","cl_moon":"#FFC107","cl_thund":"#FF5722","sl_sot":"fahrenheit","sl_ics":"one_a","font":"Arial"}'>Weather Data Source: <a href="https://wetterlabs.de/wetter_philippinen/heute/" id="ww_88918d989d2a5_u" target="_blank">Wetter Heute Philippinen</a></div><script async src="https://srv2.weatherwidget.org/js/?id=ww_88918d989d2a5"></script>
+    </center>
+    
+ 
+</div>
+<!----------- for travel planner ------------->
+<div id="Paris" class="tabcontent">
+    <center>
+      <table>
+  <tr>
+    <th class="day-name">Sun</th>
+    <th class="day-name">Mon</th>
+    <th class="day-name">Tue</th>
+    <th class="day-name">Wed</th>
+    <th class="day-name">Thu</th>
+    <th class="day-name">Fri</th>
+    <th class="day-name">Sat</th>
+  </tr>
+  <tr>
+    <td class="day"><span class="number">31</span></td>
+    <td class="day"><span class="number">1</span><span class="event"></span><span class="event"></span></td>
+    <td class="day"><span class="number">2</span></td>
+    <td class="day"><span class="number">3</span><span class="event event-multiday-start"></span></td>
+    <td class="day"><span class="number">4</span><span class="event event-multiday"></span><span class="event event-multiday-start eventclass" style="background-color:#5a9ab2;"></span><span class="event"></td>
+    <td class="day"><span class="number">5</span><span class="event event-multiday-finish"></span><span class="event event-multiday eventclass" style="background-color:#5a9ab2;"></span></td>
+    <td class="day"><span class="number">6</span><span class="event event-ghost"></span><span class="event event-multiday-finish eventclass" style="background-color:#5a9ab2;"></span></td>
+  </tr>
+  <tr>
+    <td class="day"><span class="number">7</span></td>
+    <td class="day"><span class="number">8</span><span class="event"></span></td>
+    <td class="day"><span class="number">9</span></td>
+    <td class="day"><span class="number">10</span></td>
+    <td class="day"><span class="number">11</span></td>
+    <td class="day"><span class="number">12</span></td>
+    <td class="day"><span class="number">13</span></td>
+  </tr>
+  <tr>
+    <td class="day"><span class="number">14</span></td>
+    <td class="day"><span class="number">15</span></td>
+    <td class="day"><span class="number">16</span><span class="event"></span></td>
+    <td class="day"><span class="number">17</span><span class="event"></span></td>
+    <td class="day"><span class="number">18</span></td>
+    <td class="day"><span class="number">19</span></td>
+    <td class="day"><span class="number">20</span></td>
+  </tr>
+  <tr>
+    <td class="day"><span class="number">21</span></td>
+    <td class="day"><span class="number">22</span></td>
+    <td class="day"><span class="number">23</span></td>
+    <td class="day"><span class="number">24</span></td>
+    <td class="day"><span class="number">25</span></td>
+    <td class="day"><span class="number">26</span></td>
+    <td class="day"><span class="number">27</span><span class="event event-multiday-start" style="background-color:#da5f5f;"></td>
+  </tr>
+  <tr>
+    <td class="day"><span class="number">28</span><span class="event event-multiday" style="background-color:#da5f5f;"></td>
+    <td class="day today"><span class="number">29</span><span class="event event-multiday-finish" style="background-color:#da5f5f;"></td>
+    <td class="day"><span class="number">30</span></td>
+    <td class="day"><span class="number">1</span></td>
+    <td class="day"><span class="number">2</span></td>
+    <td class="day"><span class="number">3</span></td>
+    <td class="day"><span class="number">4</span></td>
+  </tr>
+  <tr>
+    <td class="day"><span class="number">5</span></td>
+    <td class="day"><span class="number">6</span><span class="event"></span></td>
+    <td class="day"><span class="number">7</span></td>
+    <td class="day"><span class="number">8</span></td>
+    <td class="day"><span class="number">9</span></td>
+    <td class="day"><span class="number">10</span></td>
+    <td class="day"><span class="number">11</span></td>
+  </tr>
+</table>
+       
+        <br>
+        <div class="container">
+        <h1 class="row">
+          &nbsp;&nbsp;&nbsp;
+          TODO LIST
+          &nbsp;&nbsp;&nbsp;
+        </h1>
+        <div class="row">
+            <form class="form-inline col-sm-offset-3">
+                <div class="input-group">
+                    <span class="input-group-addon">
+                      <i class="glyphicon glyphicon-pencil"></i>
+                    </span>
+                    <input type="text" class="form-control"
+                           placeholder="todo-item"
+                           id="box" style="width: 30vw" />
+                </div>
+                <div class="form-group">
+                    <input type="button"
+                           class="btn btn-primary form-control"
+                           value="add" style="width: 10vw"
+                           onclick="add_item()" />
+                </div>
+            </form>
+        </div>
+        <div class="row">
+            <ul id="list_item">
+            </ul>
+        </div>
+    </div>
+    <script >
+        function add_item() {
+ 
+  // Getting box and ul by selecting id;
+  let item = document.getElementById("box");
+  let list_item = document.getElementById("list_item");
+  if(item.value != ""){
+ 
+      // Creating element and adding value to it
+      let make_li = document.createElement("LI");
+      make_li.appendChild(document.createTextNode(item.value));
+ 
+      // Adding li to ul
+      list_item.appendChild(make_li);
+ 
+      // Reset the value of box
+      item.value=""
+       
+      // Delete a li item on click
+      make_li.onclick = function(){
+        this.parentNode.removeChild(this);
+      }
+ 
+  }
+  else{
+ 
+    // Alert msg when value of box is "" empty.
+    alert("plz add a value to item");
+  }
+ 
+}
+        </script>
+    </center>
+  
+</div>
+<!----------- for travel expenses ------------->
+<div id="Tokyo" class="tabcontent">
+    <center>
+    <div class="card">
+  <h3 class="card-header text-center font-weight-bold text-uppercase py-4">
+    Editable table
+  </h3>
+  <div class="card-body">
+    <div id="table" class="table-editable">
+      <span class="table-add float-right mb-3 mr-2"
+        ><a href="#!" class="text-success"
+          ><i class="fas fa-plus fa-2x" aria-hidden="true"></i></a
+      ></span>
+      <table class="table table-bordered table-responsive-md table-striped text-center">
+        <thead>
+          <tr>
+            <th class="text-center">Expenses</th>
+            <th class="text-center">Date</th>
+            <th class="text-center">CPrices</th>
+            
+        </thead>
+        <tbody>
+          <tr>
+            <td class="pt-3-half" contenteditable="true">Airfare</td>
+            <td class="pt-3-half" contenteditable="true">3/2/2022 to 3/2/2022</td>
+            <td class="pt-3-half" contenteditable="true">P30,000</td>
+           
+         
+              <span class="table-up"
+                ><a href="#!" class="indigo-text"
+                  ><i class="fas fa-long-arrow-alt-up" aria-hidden="true"></i></a
+              ></span>
+              <span class="table-down"
+                ><a href="#!" class="indigo-text"
+                  ><i class="fas fa-long-arrow-alt-down" aria-hidden="true"></i></a
+              ></span>
+            </td>
+            <td>
+              <span class="table-remove"
+                ><button type="button" class="btn btn-danger btn-rounded btn-sm my-0">
+                  Remove
+                </button></span
+              >
+            </td>
+          </tr>
+          <!-- This is our clonable table line -->
+          <tr>
+            <td class="pt-3-half" contenteditable="true">Air Bnb</td>
+            <td class="pt-3-half" contenteditable="true">3/2/2022 to 3/5/2022</td>
+            <td class="pt-3-half" contenteditable="true">P9,000</td>
+           \
+              <span class="table-up"
+                ><a href="#!" class="indigo-text"
+                  ><i class="fas fa-long-arrow-alt-up" aria-hidden="true"></i></a
+              ></span>
+              <span class="table-down"
+                ><a href="#!" class="indigo-text"
+                  ><i class="fas fa-long-arrow-alt-down" aria-hidden="true"></i></a
+              ></span>
+            </td>
+            <td>
+              <span class="table-remove"
+                ><button type="button" class="btn btn-danger btn-rounded btn-sm my-0">
+                  Remove
+                </button></span
+              >
+            </td>
+          </tr>
+          <!-- This is our clonable table line -->
+          <tr>
+            <td class="pt-3-half" contenteditable="true">Palces to Visit</td>
+            <td class="pt-3-half" contenteditable="true">3/2/2022 to 2/2/2022</td>
+            <td class="pt-3-half" contenteditable="true">P10,000</td>
+           
+              <span class="table-up"
+                ><a href="#!" class="indigo-text"
+                  ><i class="fas fa-long-arrow-alt-up" aria-hidden="true"></i></a
+              ></span>
+              <span class="table-down"
+                ><a href="#!" class="indigo-text"
+                  ><i class="fas fa-long-arrow-alt-down" aria-hidden="true"></i></a
+              ></span>
+            </td>
+            <td>
+              <span class="table-remove"
+                ><button type="button" class="btn btn-danger btn-rounded btn-sm my-0">
+                  Remove
+                </button></span
+              >
+            </td>
+          s>
+          <!-- This is our clonable table line -->
+          <tr class="hide">
+            <td class="pt-3-half" contenteditable="true">Food</td>
+            <td class="pt-3-half" contenteditable="true">3/2/2022 to 3/5/2022</td>
+            <td class="pt-3-half" contenteditable="true">P9,000</td>
+         
+              <span class="table-up"
+                ><a href="#!" class="indigo-text"
+                  ><i class="fas fa-long-arrow-alt-up" aria-hidden="true"></i></a
+              ></span>
+              <span class="table-down"
+                ><a href="#!" class="indigo-text"
+                  ><i class="fas fa-long-arrow-alt-down" aria-hidden="true"></i></a
+              ></span>
+            </td>
+            <td>
+              <span class="table-remove"
+                ><button type="button" class="btn btn-danger btn-rounded btn-sm my-0">
+                  Remove
+                </button></span
+              >
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+        
+        <script>
+        const $tableID = $('#table'); const $BTN = $('#export-btn'); const $EXPORT = $('#export');
+  const newTr = `
+  <tr class="hide">
+    <td class="pt-3-half" contenteditable="true">Example</td>
+    <td class="pt-3-half" contenteditable="true">Example</td>
+    <td class="pt-3-half" contenteditable="true">Example</td>
+    <td class="pt-3-half" contenteditable="true">Example</td>
+    <td class="pt-3-half" contenteditable="true">Example</td>
+    <td class="pt-3-half">
+      <span class="table-up"
+        ><a href="#!" class="indigo-text"
+          ><i class="fas fa-long-arrow-alt-up" aria-hidden="true"></i></a
+      ></span>
+      <span class="table-down"
+        ><a href="#!" class="indigo-text"
+          ><i class="fas fa-long-arrow-alt-down" aria-hidden="true"></i></a
+      ></span>
+    </td>
+    <td>
+      <span class="table-remove"
+        ><button
+          type="button"
+          class="btn btn-danger btn-rounded btn-sm my-0 waves-effect waves-light"
+        >
+          Remove
+        </button></span
+      >
+    </td>
+  </tr>
+  `;
+  $('.table-add').on('click', 'i', () => {
+    const $clone = $tableID.find('tbody
+        tr ').last().clone(true).removeClass('
+        hide table - line '); if ($tableID.find('
+        tbody tr ').length ===
+        0) {
+        $('tbody').append(newTr);
+    }
+    $tableID.find('table').append($clone);
+});
+$tableID.on('click', '.table-remove', function() {
+    $(this).parents('tr').detach();
+});
+$tableID.on('click', '.table-up', function() {
+    const $row = $(this).parents('tr');
+    if ($row.index() === 0) {
+        return;
+    }
+    $row.prev().before($row.get(0));
+});
+$tableID.on('click',
+    '.table-down',
+    function() {
+        const $row = $(this).parents('tr');
+        $row.next().after($row.get(0));
+    }); // A few jQuery helpers for exporting only jQuery.fn.pop
+= [].pop;
+jQuery.fn.shift = [].shift;
+$BTN.on('click', () => {
+    const $rows =
+        $tableID.find('tr:not(:hidden)');
+    const headers = [];
+    const data = []; // Get the headers
+    (add special header logic here) $($rows.shift()).find('th:not(:empty)').each(function() {
+        headers.push($(this).text().toLowerCase());
+    }); // Turn all existing rows into a loopable
+    array $rows.each(function() {
+        const $td = $(this).find('td');
+        const h = {}; // Use the
+        headers from earlier to name our hash keys headers.forEach((header, i) => {
+            h[header] =
+                $td.eq(i).text();
+        });
+        data.push(h);
+    }); // Output the result
+    $EXPORT.text(JSON.stringify(data));
+});
+        </script>
+    </center>
+    </div>
+<script>
+  function openCity(evt, cityName) {
+  // Declare all variables
+  var i, tabcontent, tablinks;
+
+  // Get all elements with class="tabcontent" and hide them
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+
+  // Get all elements with class="tablinks" and remove the class "active"
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+
+  // Show the current tab, and add an "active" class to the button that opened the tab
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+    
+const f = document.getElementById('form');
+      const q = document.getElementById('query');
+      const google = 'https://www.google.com/search?q=site%3A+';
+      const site = '';
+
+      function submitted(event) {
+        event.preventDefault();
+        const url = google + site + '+' + q.value;
+        const win = window.open(url, '_blank');
+        win.focus();
+      }
+
+      f.addEventListener('submit', submitted);
+    
+    
+</script>
+   
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.1/moment.min.js"></script>
+    
+
+</body>
+</html>
